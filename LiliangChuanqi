@@ -1,0 +1,553 @@
+--自动锻炼
+farming = false
+
+    farming = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if farming then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+					end
+				end
+			)
+		end
+		)
+		spawn(function()
+			while farming do
+				wait()
+				pcall(
+					function()
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+						c()
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9e9,9e9,9e9)
+						if not farming then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 0, 0)
+						end
+					end
+				)
+			end
+		end)
+end)
+
+--挥拳自动
+autopunch = false
+
+    autopunch = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autopunch then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						if autopunch then
+							game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+								game:GetService("Players").LocalPlayer.Backpack.Punch
+							)
+						end
+					end
+
+				end
+			)
+		end
+		)
+end)
+
+--自动重生
+rebirth = false
+
+    rebirth = Value
+		spawn(function()
+			while rebirth do
+				wait(0.1)
+				game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+			end
+		end)
+end)
+
+jk = {}
+
+for _, v in pairs(game:GetService("ReplicatedStorage").chestRewards:GetDescendants()) do
+	if v.Name ~= "Light Karma Chest" or v.Name ~= "Evil Karma Chest" then
+		table.insert(jk, v.Name)
+	end
+end
+
+local function getAllChests()
+	for i, chestName in ipairs(jk) do
+		game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(chestName)
+		wait(2)
+	end
+end
+
+--无CD
+noCD = false
+punchCooldown = 0.35
+
+    noCD = Value
+		if noCD then
+			game:GetService("Players").LocalPlayer.Backpack.Punch:FindFirstChildOfClass("NumberValue").Value = 0
+		else
+			game:GetService("Players").LocalPlayer.Backpack.Punch:FindFirstChildOfClass("NumberValue").Value = punchCooldown
+		end
+end)
+
+--自动石头
+--0耐力
+local autorocks0 = false
+
+    autorocks0 = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks0 then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(17.6, 3.8, 2119.2)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--10
+local autorocks10 = false
+
+    autorocks10 = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks10 then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-151.0, 3.7, 438.5)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--5K
+autorocks5k = false
+
+    autorocks5k = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks5k then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(299.9, 3.7, -563.6)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--150k
+autorocks150k = false
+
+    autorocks150k = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks150k then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2557.7, 3.7, -202.3)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--1M
+
+autorocks1M = false
+
+    autorocks1M = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks1M then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4144.3, 987.9, -4032.2)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--5M
+autorocks5M = false
+
+    autorocks5M = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks5M then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8966.7, 13.6, -5988.1)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+})
+
+--自动锻炼
+farming = false
+
+    farming = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if farming then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+					end
+				end
+			)
+		end
+		)
+		spawn(function()
+			while farming do
+				wait()
+				pcall(
+					function()
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("rep")
+						c()
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(9e9,9e9,9e9)
+						if not farming then
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 0, 0)
+						end
+					end
+				)
+			end
+		end)
+end)
+--挥拳自动
+autopunch = false
+
+    autopunch = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autopunch then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						if autopunch then
+							game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+								game:GetService("Players").LocalPlayer.Backpack.Punch
+							)
+						end
+					end
+
+				end
+			)
+		end
+		)
+end)
+--自动重生
+rebirth = false
+
+    rebirth = Value
+		spawn(function()
+			while rebirth do
+				wait(0.1)
+				game:GetService("ReplicatedStorage").rEvents.rebirthRemote:InvokeServer("rebirthRequest")
+			end
+		end)
+end)
+
+jk = {}
+
+for _, v in pairs(game:GetService("ReplicatedStorage").chestRewards:GetDescendants()) do
+	if v.Name ~= "Light Karma Chest" or v.Name ~= "Evil Karma Chest" then
+		table.insert(jk, v.Name)
+	end
+end
+
+local function getAllChests()
+	for i, chestName in ipairs(jk) do
+		game:GetService("ReplicatedStorage").rEvents.checkChestRemote:InvokeServer(chestName)
+		wait(2)
+	end
+end
+
+--自动石头
+--0耐力
+local autorocks0 = false
+
+    autorocks0 = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks0 then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(17.6, 3.8, 2119.2)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--10
+local autorocks10 = false
+
+    autorocks10 = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks10 then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-151.0, 3.7, 438.5)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--5K
+autorocks5k = false
+
+    autorocks5k = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks5k then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(299.9, 3.7, -563.6)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--150k
+autorocks150k = false
+
+    autorocks150k = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks150k then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2557.7, 3.7, -202.3)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--400K石头
+
+autorocks400k = false
+
+    autorocks400k = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks400k then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2182.3, 3.7, 1292.7)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--750K石头
+
+autorocks750k = false
+
+    autorocks750k = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks750k then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7263.5, 3.7, -1217.2)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+
+--1M
+
+autorocks1M = false
+
+    autorocks1M = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks1M then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4144.3, 987.9, -4032.2)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+
+--5M
+autorocks5M = false
+
+    autorocks5M = Value
+		game:GetService("RunService").Stepped:connect(
+		function()
+			pcall(
+				function()
+					if autorocks5M then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-8966.7, 13.6, -5988.1)
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "leftHand")
+						game:GetService("Players").LocalPlayer.muscleEvent:FireServer("punch", "rightHand")
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(
+							game:GetService("Players").LocalPlayer.Backpack.Punch
+						)
+					end
+				end
+			)
+		end
+		)
+end)
+})
+
+	传送到出生点
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(7,3,108)
+	
+
+
+	传送到冰霜健身房
+	
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(-2543,13,-410)
+	
+
+
+	传送到神话健身房
+	
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(2177,13,1070)
+	
+
+
+	传送到永恒健身房
+	
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(-6686,13,-1284)
+	
+
+
+	传送到传说健身房
+	
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(4676,997,-3915)
+	
+
+
+	传送到肌肉之王健身房
+	
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(-8554,22,-5642)
+	
+
+
+	传送到安全岛
+	
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(-39,10,1838)
+	
+
+
+	传送到幸运抽奖区域
+	
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=CFrame.new(-2606,-2,5753)
